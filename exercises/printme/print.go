@@ -8,5 +8,9 @@ import (
 // Your PrintAnythingTo function goes here!
 
 func PrintAnythingTo[T any](w io.Writer, p T) {
-	_, _ = fmt.Fprint(w, p)
+	fprint, err := fmt.Fprint(w, p)
+	fmt.Println(fprint, err)
+	if err != nil {
+		return
+	}
 }
